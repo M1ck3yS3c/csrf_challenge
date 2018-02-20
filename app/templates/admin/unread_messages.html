@@ -1,0 +1,28 @@
+{% import "bootstrap/utils.html" as utils %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "base.html" %}
+{% block title %}Admin - Unread Messages{% endblock %}
+{% block body %}
+{% autoescape false %}
+<div class="content-section" id="backgroud-image">
+  <br/>
+  {{ utils.flashed_messages() }}
+  <br/>
+  <div class="center">
+
+      <table>
+         {% for ur in unread_messages%}
+            <tr>
+              <td>
+                  <br class="messages">{{ ur }}<br>
+                  #################################################################################
+
+              </td>
+            </tr>
+          {% endfor %}
+      </table>
+
+  </div>
+</div>
+{% endautoescape %}
+{% endblock %}

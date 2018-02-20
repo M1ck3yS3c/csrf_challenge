@@ -1,0 +1,31 @@
+{% import "bootstrap/utils.html" as utils %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "base.html" %}
+{% block title %}Contact Us{% endblock %}
+{% block body %}
+<div class="content-section" id="backgroud-image">
+  <br/>
+  {{ utils.flashed_messages() }}
+  <br/>
+  <div class="center">
+    <h1>Send your message to the admin</h1>
+    <br/>
+    {{ wtf.quick_form(form) }}
+      <br/>
+      <br/>
+      <br/>
+      <div>
+      <table>
+              {% for mf in message_feed %}
+              <td>
+                  <strong>{{mf.author}}</strong> says: {{mf.body}}<br>
+                  {% if mf.response != None: %}
+                  &nbsp;&nbsp;&nbsp;&nbsp;Admin says: {{ mf.response }}<br><br>
+                  {% endif %}
+              </td>
+          </table>
+          {% endfor %}
+      </div>
+  </div>
+</div>
+{% endblock %}
