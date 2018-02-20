@@ -1,10 +1,5 @@
 # app/__init__.py
 
-from .bot import bot
-from apscheduler.schedulers.background import BackgroundScheduler
-scheduler = BackgroundScheduler()
-scheduler.start(paused=True)
-
 
 # third-party imports
 from flask_login import LoginManager
@@ -78,8 +73,6 @@ def create_app(config_name):
 
     from .admin import admin as admin_blueprint
     app.register_blueprint(admin_blueprint)
-    """
-    from .bot import bot as bot_blueprint
-    app.register_blueprint(bot_blueprint)
-    """
+   
+
     return app

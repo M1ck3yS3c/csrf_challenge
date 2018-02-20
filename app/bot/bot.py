@@ -1,11 +1,10 @@
 from selenium import webdriver
-from selenium.webdriver import DesiredCapabilities
 
 
 def bot_run():
     print('in bot!')
     print('in run bot!')
-    driver = webdriver.PhantomJS(executable_path="C:/Users/mfotso/PycharmProjects/CRSF_Project/venv/phantomjs-2.1.1-windows/bin/phantomjs.exe")
+    driver = webdriver.PhantomJS(executable_path="phantomjs")
     driver.set_window_size(1120, 550)
     print('anything')
     driver.get("http://127.0.0.1:5000/login")
@@ -22,4 +21,4 @@ def bot_run():
     driver.save_screenshot('screenshot1.png')
     print('anything6')
     driver.quit()
-bot_run()
+
