@@ -7,7 +7,6 @@ from .. import db
 from ..models import User
 
 
-
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
@@ -33,9 +32,6 @@ def login():
             form.password.data
         ):
             login_user(user)
-
-
-
             return redirect(url_for('home.dashboard'))
 
         else:
