@@ -14,16 +14,14 @@ from ..models import User
 def show_update_profile():
     form = ChangePasswordForm()
     if form.validate_on_submit():
-        if  form.is_admin.data == True:
-            return render_template('secret/nope.html')
-        elif not current_user.verify_password(form.old_password.data):
+        if not current_user.verify_password(form.old_password.data):
             flash('Old password does not match your actual password')
         elif form.new_password.data != form.new_password_confirm.data:
             flash('New password and Confirmation do not match')
         elif not current_user.is_admin and form.is_admin.data == '1':
             flash('You are not allowed!... Only admins')
         else:
-            user = User.query.get_or_404(current_user.id)
+            user = User.query.get_or_404(current_user)
             user.password=form.new_password.data
             user.is_admin=form.is_admin.data
             db.session.add(user)
