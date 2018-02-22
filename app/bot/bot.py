@@ -24,3 +24,4 @@ def bot_run():
     driver.save_screenshot('going_baccdk_to_login.png')
     driver.quit()
 
+bot_run()

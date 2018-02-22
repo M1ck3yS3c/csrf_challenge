@@ -24,5 +24,4 @@ def send_message():
         db.session.commit()
         flash('Message sent successfully! We will get back to you')
         return redirect(url_for('message.send_message',form=form,message_feed=message_feed))
-
     return render_template('/message/send_message.html',form=form,message_feed=message_feed)
