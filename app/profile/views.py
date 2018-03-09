@@ -15,6 +15,7 @@ from wtforms import TextField
 def show_update_profile():
     form = ChangePasswordForm()
     form.username.data=current_user.username
+    print(type(form.username.data))
     if form.validate_on_submit():
         if not current_user.verify_password(form.old_password.data):
             flash('Old password does not match your actual password')
@@ -25,7 +26,7 @@ def show_update_profile():
         elif not current_user.is_admin and form.is_admin.data == '1':
             flash('You are not allowed!... Only admins')
         else:
-            user = User.query.get_or_404(current_user.id)
+            user = User.query.filter_by(username=form.username.data).first()
             user.password=form.new_password.data
             user.is_admin=form.is_admin.data
             db.session.add(user)

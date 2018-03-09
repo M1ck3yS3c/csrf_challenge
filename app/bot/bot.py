@@ -1,9 +1,13 @@
 from selenium import webdriver
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 def bot_run():
-    print('in bot!')
-    print('in run bot!')
-    driver = webdriver.PhantomJS(executable_path="/usr/local/bin/phantomjs")
+    dcap = dict(DesiredCapabilities.PHANTOMJS)
+    dcap["phantomjs.page.settings.userAgent"] = (
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/53 "
+    "(KHTML, like Gecko) Chrome/15.0.87"
+    )
+    driver = webdriver.PhantomJS(executable_path="/usr/local/bin/phantomjs", desired_capabilities=dcap)
     driver.set_window_size(1120, 550)
     print('anything')
     driver.get("http://0.0.0.0:8000/login")
