@@ -19,7 +19,7 @@
               {% for mf in message_feed %}
               <td>
                   <strong>{{mf.author}}</strong> says: {{mf.body}}<br>
-                  {% if mf.response != None: %}
+                  {% if mf.response != None %}
                   &nbsp;&nbsp;&nbsp;&nbsp;Admin says: {{ mf.response }}<br><br>
                   {% endif %}
               </td>

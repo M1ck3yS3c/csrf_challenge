@@ -14,7 +14,7 @@ class DevelopmentConfig(Config):
 
     DEBUG = True
     SQLALCHEMY_ECHO = True
-
+    SQLALCHEMY_DATABASE_URI = 'sqlite:////root/Documents/DXCTF/CSRF_Challenge/csrf_challenge/dedsec.db'
 class ProductionConfig(Config):
     """
     Production configurations

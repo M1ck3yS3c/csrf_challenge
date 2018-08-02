@@ -1,4 +1,5 @@
 from flask_wtf import FlaskForm
+from flask_login import current_user
 from  werkzeug.security import generate_password_hash
 from wtforms import PasswordField, BooleanField, SubmitField, HiddenField, TextField
 from wtforms.validators import DataRequired, EqualTo
@@ -10,4 +11,4 @@ class ChangePasswordForm(FlaskForm):
     new_password = PasswordField('New Password', validators=[DataRequired()])
     new_password_confirm = PasswordField('Confirm New Password', validators=[DataRequired()])
     is_admin = BooleanField('Admin', default=False)
-    submit = SubmitField('Update')
+    submit_form = SubmitField('Update')
