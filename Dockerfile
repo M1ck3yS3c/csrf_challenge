@@ -31,7 +31,7 @@ RUN wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x
 RUN tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2 -C /usr/local/share/
 RUN ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
 RUN phantomjs --version
-RUN crontab -l ;  echo "5 * * * * /ded_sec/app/bot/run_bot.sh >> /var/log/cron.log"  | crontab
+RUN crontab -l ;  echo "*/5 * * * * /ded_sec/app/bot/run_bot.sh >> /var/log/cron.log"  | crontab
 
 #SET ENTRYPOINT
 WORKDIR /ded_sec/
